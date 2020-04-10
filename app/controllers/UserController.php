@@ -42,4 +42,67 @@ class UserController extends Controller
         
     }
 
+    public function loginAction()
+    {
+
+    }
+
+    public function storeloginAction()
+    {
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+
+        if($this->request->getPost('tipe') == "dokter")
+        {
+            $user = Dokter::findFirst("username='$username'");
+
+            if ($user) {
+                if ($this->security->checkHash($password, $user->password)) {
+                    $this->session->set(
+                        'dokter',
+                        [
+                            'id' => $user->idDokter,
+                            'username' => $user->username,
+                            'tipe' => '1',
+                        ]
+                    );
+                    (new Response())->redirect('dokter/home')->send();
+                }
+                else{
+                    $this->response->redirect('user/login');
+                }
+            }
+            else{
+                $this->response->redirect('user/login');
+            }
+
+        }
+        elseif($this->request->getPost('tipe') == "pasien")
+        {
+            $user = Pasien::findFirst("username='$username'");
+
+            if ($user) {
+                if ($this->security->checkHash($password, $user->password)) {
+                    $this->session->set(
+                        'pasien',
+                        [
+                            'id' => $user->idpasien,
+                            'username' => $user->username,
+                            'tipe' => '2',
+                        ]
+                    );
+                    (new Response())->redirect('pasien/home')->send();
+                }
+                else{
+                    $this->response->redirect('user/login');
+                }
+            }
+            else{
+                $this->response->redirect('user/login');
+            }
+
+        }
+
+    }
+
 }
