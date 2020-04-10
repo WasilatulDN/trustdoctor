@@ -27,14 +27,14 @@ class DokterRoutes extends RouterGroup
         );
 
         $this->addPost(
-            '/store-konsultasi',
+            '/store-replykonsultasi',
             [
-                'action' => 'storekonsultasidokter',
+                'action' => 'storereplykonsultasi',
             ]
         );
 
         $this->addGet(
-            '/reply-konsultasi',
+            '/reply-konsultasi/{id}',
             [
                 'action' => 'replykonsultasi',
             ]

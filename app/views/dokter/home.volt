@@ -38,34 +38,22 @@
         height: "311px",
         layout: "fitColumns",
         placeholder: "Tidak Ada Konsultasi",
-        columns: [{
-            title: "No",
-            field: "no",
-            formatter: "rownum",
-            width: 10
-        }, {
-            title: "Tanggal",
-            field: "tanggal"
-        }, {
-            title: "Usia",
-            field: "usia"
-        }, {
-            title: "Keluhan",
-            field: "keluhan"
-        }, {
-            title: "jawab",
-            field: "jawab"
-        }, {
-            title: "Lihat Detail",
-            field: "link",
-            formatter: "link",
-            formatterParams: {
+        columns: [
+            {title: "No", field: "no", formatter: "rownum", width: 10},
+            {title: "Tanggal", field: "tanggal"},
+            {title: "Keluhan", field: "keluhan"},
+            {title: "Jenis Kelamin", field: "jkel"},
+            {title: "Usia", field: "usia"},
+            {title: "Dijawab", field: "dijawab"},
+            {
+                title: "Lihat Detail", field: "link", formatter: "link", formatterParams: {
                 labelField: "name",
                 label: "Detail",
                 urlPrefix: "{{ url('dokter/detail/') }}",
 
             }
-        }, ],
+        },
+        ],
     });
     table.setData("{{ url('dokter/list-konsultasi') }}");
 </script>

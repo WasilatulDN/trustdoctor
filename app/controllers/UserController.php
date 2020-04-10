@@ -105,4 +105,10 @@ class UserController extends Controller
 
     }
 
+    public function logoutAction()
+    {
+        $this->session->destroy();
+        $this->response->redirect("user/login");
+    }
+
 }
