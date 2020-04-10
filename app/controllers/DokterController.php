@@ -45,21 +45,14 @@ class DokterController extends Controller
         
     }
 
-    public function storekonsultasidokterAction()
+    public function storereplykonsultasiAction()
     {
-        // $id = $this->session->get('pasien')['id'];
-        // print($id); die();
-        // $pasien = Pasien::find("idPasien='$id'");
+
         // $konsultasi = new Konsultasi();
-        // $konsultasi->idPasien = $this->session->get('pasien')['id'];
-        // $konsultasi->tanggal = $this->request->getPost('tanggal');
-        // $konsultasi->jkel = $this->request->getPost('jkel');
-        // $konsultasi->usia = $this->request->getPost('usia');
-        // $konsultasi->keluhan = $this->request->getPost('keluhan');
-        // $konsultasi->detail = $this->request->getPost('detail');
-        // $konsultasi->dijawab = 0;
-        // $konsultasi->save();
-        // $this->response->redirect('dokter/home');
+        $konsultasi->jawaban = $this->request->getPost('jawaban');
+        $konsultasi->idKonsultasi = $this->request->getPost('idKonsultasi');
+        $konsultasi->save();
+        $this->response->redirect('dokter/home');
         
     }
 

@@ -23,7 +23,7 @@
 <div class="home-content">
     tanggal konsultasi : <br> {{konsultasi.tanggal}} <br> <br> usia : <br> {{konsultasi.usia}} tahun <br> <br> jenis kelamin : <br> {{konsultasi.jkel}} <br> <br> keluhan : <br> {{konsultasi.keluhan}} <br> <br> detail : <br> {{konsultasi.detail}} <br>    {% if(konsultasi.dijawab == 0) %} {% else %} {{konsultasi.jawaban}} <br> {% endif %}
 
-    <button><a href="reply-konsultasi" style="color: #FFFFFF">Jawab</a></button></div>
+    <button><a href="{{ url('dokter/reply-konsultasi') }}" style="color: #FFFFFF">Jawab</a></button></div>
 
 </div>
 
