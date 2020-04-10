@@ -33,6 +33,7 @@
             </h1>
         </div>
         <h2 class="dashboard-title">Daftar Konsultasi</h2>
+        <div style="margin: 10pt"><button><a href="create-konsultasi" style="color: #FFFFFF">Buat Konsultasi</a></button></div>
         <div id="daftar-konsultasi"></div>
         </div>
         </div>
@@ -40,7 +41,7 @@
             var table = new Tabulator("#daftar-konsultasi", {
                 height: "311px",
                 layout: "fitColumns",
-                placeholder: "Tidak Ada Resep",
+                placeholder: "Tidak Ada Konsultasi",
                 columns: [
                     {title: "No", field: "no", formatter: "rownum", width: 10},
                     {title: "Tanggal", field: "tanggal"},
@@ -50,7 +51,7 @@
                     title: "Lihat Detail", field: "link", formatter: "link", formatterParams: {
                         labelField: "name",
                         label: "Detail",
-                        urlPrefix: "{{ url('pasien/update-resep/') }}",
+                        urlPrefix: "{{ url('pasien/detail/') }}",
 
                     }
                 },
