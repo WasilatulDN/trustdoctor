@@ -25,6 +25,20 @@ class UserRoutes extends RouterGroup
                 'action' => 'storeregister',
             ]
         );
+
+        $this->addGet(
+            '/login',
+            [
+                'action' => 'login',
+            ]
+        );
+
+        $this->addPost(
+            '/login',
+            [
+                'action' => 'storelogin',
+            ]
+        );
         
     }
 }
