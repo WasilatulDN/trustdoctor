@@ -39,6 +39,13 @@ class UserRoutes extends RouterGroup
                 'action' => 'storelogin',
             ]
         );
+
+        $this->addGet(
+            '/logout',
+            [
+                'action' => 'logout',
+            ]
+        );
         
     }
 }

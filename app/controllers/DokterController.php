@@ -16,7 +16,10 @@ class DokterController extends Controller
     {
         // $id = $this->session->get('pasien')['id'];
         // $konsultasis = Konsultasi::find("idPasien='$id'");
-        $konsultasis = Konsultasi::find();
+        // $konsultasis = Konsultasi::find();
+        $konsultasis = Konsultasi::find([
+            'order' => 'dijawab ASC'
+            ]);
         $data = array();
         
             foreach ($konsultasis as $konsultasi) {
@@ -32,6 +35,7 @@ class DokterController extends Controller
                 $data[] = array(
                     'tanggal' => $konsultasi->tanggal,
                     'usia' => $konsultasi->usia,
+                    'jkel' => $konsultasi->jkel,
                     'keluhan' => $konsultasi->keluhan,
                     'dijawab' => $dijawab,
                     'link' => $konsultasi->idKonsultasi,
@@ -47,17 +51,21 @@ class DokterController extends Controller
 
     public function storereplykonsultasiAction()
     {
-
-        // $konsultasi = new Konsultasi();
+        $idDokter = $this->session->get('dokter')['id'];
+        $id = $this->request->getPost('idKonsultasi');
+        $konsultasi = Konsultasi::findFirst("idKonsultasi='$id'");
         $konsultasi->jawaban = $this->request->getPost('jawaban');
-        $konsultasi->idKonsultasi = $this->request->getPost('idKonsultasi');
+        $konsultasi->idDokter = $idDokter;
+        $konsultasi->dijawab = 1;
         $konsultasi->save();
         $this->response->redirect('dokter/home');
         
     }
 
-    public function replykonsultasiAction()
+    public function replykonsultasiAction($id)
     {
+        $konsultasi = Konsultasi::findFirst("idKonsultasi='$id'");
+        $this->view->idKonsultasi = $konsultasi->idKonsultasi;
         
     }
     
@@ -65,6 +73,9 @@ class DokterController extends Controller
     {
         $konsultasi = Konsultasi::findFirst("idKonsultasi='$id'");
         $this->view->konsultasi = $konsultasi;
+
+        $pasien = Pasien::findFirst("idPasien='$konsultasi->idPasien'");
+        $this->view->pasien = $pasien;
         
     }
 

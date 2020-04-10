@@ -25,17 +25,17 @@
         </div>
     </div>
     <div class="home-content">
-        <label>Form Buat Konsultasi</label>
+        <label>Form Jawab Konsultasi</label>
         <form class="data-form" action="{{ url("dokter/store-replykonsultasi") }}" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="jawaban">Jawaban</label><br>
                 <input type="text" name="jawaban" id="jawaban">
             </div>
             <div class="form-group">
-                <input type="hidden" name="idKonsultasi" id="idKonsultasi">
+                <input type="hidden" name="idKonsultasi" id="idKonsultasi" value={{idKonsultasi}}>
             </div>
 
-            <input class="log-btn" type="submit" value="Buat">
+            <input class="log-btn" type="submit" value="Jawab">
         </form>
     </div>
 {% endblock %}

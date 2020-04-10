@@ -21,9 +21,14 @@
     </div>
 </div>
 <div class="home-content">
-    tanggal konsultasi : <br> {{konsultasi.tanggal}} <br> <br> usia : <br> {{konsultasi.usia}} tahun <br> <br> jenis kelamin : <br> {{konsultasi.jkel}} <br> <br> keluhan : <br> {{konsultasi.keluhan}} <br> <br> detail : <br> {{konsultasi.detail}} <br>    {% if(konsultasi.dijawab == 0) %} {% else %} {{konsultasi.jawaban}} <br> {% endif %}
+    tanggal konsultasi : <br> {{konsultasi.tanggal}} <br> <br> 
+    nama : <br> {{pasien.nama}} <br> <br> 
+    usia : <br> {{konsultasi.usia}} tahun <br> <br> 
+    jenis kelamin : <br> {{konsultasi.jkel}} <br> <br> 
+    keluhan : <br> {{konsultasi.keluhan}} <br> <br> 
+    detail : <br> {{konsultasi.detail}} <br>
 
-    <button><a href="{{ url('dokter/reply-konsultasi') }}" style="color: #FFFFFF">Jawab</a></button></div>
+    <button><a href="../../dokter/reply-konsultasi/{{konsultasi.idKonsultasi}}" style="color: #FFFFFF">Jawab</a></button></div>
 
 </div>
 

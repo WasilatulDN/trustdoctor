@@ -34,7 +34,7 @@ class DokterRoutes extends RouterGroup
         );
 
         $this->addGet(
-            '/reply-konsultasi',
+            '/reply-konsultasi/{id}',
             [
                 'action' => 'replykonsultasi',
             ]
