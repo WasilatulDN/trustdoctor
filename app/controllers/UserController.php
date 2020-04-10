@@ -86,7 +86,7 @@ class UserController extends Controller
                     $this->session->set(
                         'pasien',
                         [
-                            'id' => $user->idpasien,
+                            'id' => $user->idPasien,
                             'username' => $user->username,
                             'tipe' => '2',
                         ]
