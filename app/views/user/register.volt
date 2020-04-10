@@ -41,7 +41,7 @@
             </div>
             <div class="form-group log-status">
                 <div>Saya seorang : </div>
-                <input type="radio" name="tipe" value="dokter"> dokter
+                <input type="radio" name="tipe" value="dokter" checked> dokter
                 <input type="radio" name="tipe" value="pasien"> pasien
             </div>
             <span class="alert">Invalid Credentials</span>

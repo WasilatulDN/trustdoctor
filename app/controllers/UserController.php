@@ -9,6 +9,16 @@ class UserController extends Controller
     
     public function registerAction()
     {
+        $_isDokter = $this->session->get('dokter')['tipe'];
+        $_isPasien = $this->session->get('pasien')['tipe'];
+        if($_isDokter)
+        {
+            $this->response->redirect('dokter/home');
+        }
+        if($_isPasien)
+        {
+            $this->response->redirect('pasien/home');
+        }
 		
     }
 
@@ -44,6 +54,16 @@ class UserController extends Controller
 
     public function loginAction()
     {
+        $_isDokter = $this->session->get('dokter')['tipe'];
+        $_isPasien = $this->session->get('pasien')['tipe'];
+        if($_isDokter)
+        {
+            $this->response->redirect('dokter/home');
+        }
+        if($_isPasien)
+        {
+            $this->response->redirect('pasien/home');
+        }
 
     }
 

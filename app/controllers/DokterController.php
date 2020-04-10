@@ -9,6 +9,16 @@ class DokterController extends Controller
     
     public function homeAction()
     {
+        $_isDokter = $this->session->get('dokter')['tipe'];
+        $_isPasien = $this->session->get('pasien')['tipe'];
+        if(!$_isDokter)
+        {
+            $this->response->redirect('user/login');
+        }
+        if($_isPasien)
+        {
+            $this->response->redirect('pasien/home');
+        }
         
     }
 
@@ -64,6 +74,16 @@ class DokterController extends Controller
 
     public function replykonsultasiAction($id)
     {
+        $_isDokter = $this->session->get('dokter')['tipe'];
+        $_isPasien = $this->session->get('pasien')['tipe'];
+        if(!$_isDokter)
+        {
+            $this->response->redirect('user/login');
+        }
+        if($_isPasien)
+        {
+            $this->response->redirect('pasien/home');
+        }
         $konsultasi = Konsultasi::findFirst("idKonsultasi='$id'");
         $this->view->idKonsultasi = $konsultasi->idKonsultasi;
         
@@ -71,6 +91,16 @@ class DokterController extends Controller
     
     public function detailAction($id)
     {
+        $_isDokter = $this->session->get('dokter')['tipe'];
+        $_isPasien = $this->session->get('pasien')['tipe'];
+        if(!$_isDokter)
+        {
+            $this->response->redirect('user/login');
+        }
+        if($_isPasien)
+        {
+            $this->response->redirect('pasien/home');
+        }
         $konsultasi = Konsultasi::findFirst("idKonsultasi='$id'");
         $this->view->konsultasi = $konsultasi;
 
