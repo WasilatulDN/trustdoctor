@@ -19,6 +19,19 @@ class PasienRoutes extends RouterGroup
             ]
         );
 
+        $this->addGet(
+            '/list-konsultasi',
+            [
+                'action' => 'listkonsultasi',
+            ]
+        );
+
+        $this->addGet(
+            '/create-konsultasi',
+            [
+                'action' => 'createkonsultasi',
+            ]
+        );
         
     }
 }

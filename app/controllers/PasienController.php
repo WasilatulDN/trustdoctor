@@ -12,4 +12,14 @@ class PasienController extends Controller
         
     }
 
+    public function listkonsultasiAction()
+    {
+        
+    }
+
+    public function createkonsultasiAction()
+    {
+        
+    }
+
 }
