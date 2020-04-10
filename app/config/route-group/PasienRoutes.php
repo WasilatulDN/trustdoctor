@@ -32,6 +32,20 @@ class PasienRoutes extends RouterGroup
                 'action' => 'createkonsultasi',
             ]
         );
+
+        $this->addPost(
+            '/store-konsultasi',
+            [
+                'action' => 'storekonsultasi',
+            ]
+        );
+
+        $this->addGet(
+            '/detail/{id}',
+            [
+                'action' => 'detail',
+            ]
+        );
         
     }
 }
