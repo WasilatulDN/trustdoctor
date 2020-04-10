@@ -22,7 +22,14 @@ class DokterRoutes extends RouterGroup
         $this->addGet(
             '/list-konsultasi',
             [
-                'action' => 'listkonsultasi',
+                'action' => 'listkonsultasidokter',
+            ]
+        );
+
+        $this->addPost(
+            '/store-konsultasi',
+            [
+                'action' => 'storekonsultasidokter',
             ]
         );
 
@@ -32,6 +39,6 @@ class DokterRoutes extends RouterGroup
                 'action' => 'replykonsultasi',
             ]
         );
-        
+
     }
 }
