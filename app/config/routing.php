@@ -12,6 +12,10 @@ $di->set(
         $router->mount(
             new PasienRoutes()
         );
+
+        $router->mount(
+            new DokterRoutes()
+        );
         
         $router->addGet(
             '/',
