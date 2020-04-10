@@ -8,6 +8,10 @@ $di->set(
         $router->mount(
             new UserRoutes()
         );
+
+        $router->mount(
+            new PasienRoutes()
+        );
         
         $router->addGet(
             '/',
