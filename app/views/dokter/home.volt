@@ -1,63 +1,72 @@
-{% extends "dashboard/basedokter.volt" %}
-
-{% block title %}Daftar Konsultasi{% endblock %}
-
-{% block content %}
-    <div class="dashboard-header" align="right">
+{% extends "dashboard/basedokter.volt" %} {% block title %}Daftar Konsultasi{% endblock %} {% block content %}
+<div class="dashboard-header" align="right">
 
 
-        <div class="dropdown-btn" style="float: right;">
-            <button><i class="fas fa-user-md"> </i> Profil</button>
-            <div class="dropdown-ctn">
-                <ul>
-                    <li>
-                        <a href="{{ url('') }}">
+    <div class="dropdown-btn" style="float: right;">
+        <button><i class="fas fa-user-md"> </i> Profil</button>
+        <div class="dropdown-ctn">
+            <ul>
+                <li>
+                    <a href="{{ url('') }}">
                             Akun
                         </a>
-                    </li>
-                    <li>
-                        <a href="{{ url('user/logout') }}">
+                </li>
+                <li>
+                    <a href="{{ url('user/logout') }}">
                             Logout
                         </a>
-                    </li>
-                </ul>
-            </div>
+                </li>
+            </ul>
         </div>
     </div>
-    <div class="home-content">
-        <div>{{flashSession.output()}}</div>
-        <div class="dok-hello">
-            <h1 style="padding: 0px 5px">
-                Hallo, {{ session.get('dokter')['username'] }}!
-                
-            </h1>
-        </div>
-        <!-- <h2 class="dashboard-title">Daftar Konsultasi</h2>
-        <div style="margin: 10pt"><button><a href="create-konsultasi" style="color: #FFFFFF">Buat Konsultasi</a></button></div> -->
-        <div id="daftar-konsultasi"></div>
-        </div>
-        </div>
-        <script>
-            var table = new Tabulator("#daftar-konsultasi", {
-                height: "311px",
-                layout: "fitColumns",
-                placeholder: "Tidak Ada Konsultasi",
-                columns: [
-                    {title: "No", field: "no", formatter: "rownum", width: 10},
-                    {title: "Tanggal", field: "tanggal"},
-                    {title: "Usia", field: "usia"},
-                    {title: "Keluhan", field: "keluhan"},
-                    {title: "jawab", field: "jawab"},
-                     {
-                    title: "Lihat Detail", field: "link", formatter: "link", formatterParams: {
-                        labelField: "name",
-                        label: "Detail",
-                        urlPrefix: "{{ url('dokter/detail/') }}",
+</div>
+<div class="home-content">
+    <div>{{flashSession.output()}}</div>
+    <div class="dok-hello">
+        <h1 style="padding: 0px 5px">
+            Hallo, {{ session.get('dokter')['username'] }}!
 
-                    }
-                },
-                ],
-            });
-            table.setData("{{ url('dokter/list-konsultasi') }}");
-        </script>
+        </h1>
+    </div>
+    <!-- <h2 class="dashboard-title">Daftar Konsultasi</h2>
+        <div style="margin: 10pt"><button><a href="create-konsultasi" style="color: #FFFFFF">Buat Konsultasi</a></button></div> -->
+    <div id="daftar-konsultasi"></div>
+</div>
+</div>
+<script>
+    var table = new Tabulator("#daftar-konsultasi", {
+        height: "311px",
+        layout: "fitColumns",
+        placeholder: "Tidak Ada Konsultasi",
+        columns: [{
+            title: "No",
+            field: "no",
+            formatter: "rownum",
+            width: 10
+        }, {
+            title: "Tanggal",
+            field: "tanggal"
+        }, {
+            title: "Usia",
+            field: "usia"
+        }, {
+            title: "Keluhan",
+            field: "keluhan"
+        }, {
+            title: "jawab",
+            field: "jawab"
+        }, {
+            title: "Lihat Detail",
+            field: "link",
+            formatter: "link",
+            formatterParams: {
+                labelField: "name",
+                label: "Detail",
+                urlPrefix: "{{ url('dokter/detail/') }}",
+
+            }
+        }, ],
+    });
+    table.setData("{{ url('dokter/list-konsultasi') }}");
+</script>
 {% endblock %}

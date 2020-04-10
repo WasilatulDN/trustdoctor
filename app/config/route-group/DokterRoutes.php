@@ -39,6 +39,13 @@ class DokterRoutes extends RouterGroup
                 'action' => 'replykonsultasi',
             ]
         );
+        
+        $this->addGet(
+            '/detail/{id}',
+            [
+                'action' => 'detail',
+            ]
+        );
 
     }
 }

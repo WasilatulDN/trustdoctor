@@ -14,8 +14,9 @@ class DokterController extends Controller
 
     public function listkonsultasidokterAction()
     {
-        $id = $this->session->get('pasien')['id'];
-        $konsultasis = Konsultasi::find("idPasien='$id'");
+        // $id = $this->session->get('pasien')['id'];
+        // $konsultasis = Konsultasi::find("idPasien='$id'");
+        $konsultasis = Konsultasi::find();
         $data = array();
         
             foreach ($konsultasis as $konsultasi) {
@@ -46,26 +47,33 @@ class DokterController extends Controller
 
     public function storekonsultasidokterAction()
     {
-        $id = $this->session->get('pasien')['id'];
+        // $id = $this->session->get('pasien')['id'];
         // print($id); die();
         // $pasien = Pasien::find("idPasien='$id'");
-        $konsultasi = new Konsultasi();
-        $konsultasi->idPasien = $this->session->get('pasien')['id'];
-        $konsultasi->tanggal = $this->request->getPost('tanggal');
-        $konsultasi->jkel = $this->request->getPost('jkel');
-        $konsultasi->usia = $this->request->getPost('usia');
-        $konsultasi->keluhan = $this->request->getPost('keluhan');
-        $konsultasi->detail = $this->request->getPost('detail');
-        $konsultasi->dijawab = 0;
-        $konsultasi->save();
-        $this->response->redirect('dokter/home');
+        // $konsultasi = new Konsultasi();
+        // $konsultasi->idPasien = $this->session->get('pasien')['id'];
+        // $konsultasi->tanggal = $this->request->getPost('tanggal');
+        // $konsultasi->jkel = $this->request->getPost('jkel');
+        // $konsultasi->usia = $this->request->getPost('usia');
+        // $konsultasi->keluhan = $this->request->getPost('keluhan');
+        // $konsultasi->detail = $this->request->getPost('detail');
+        // $konsultasi->dijawab = 0;
+        // $konsultasi->save();
+        // $this->response->redirect('dokter/home');
         
     }
 
-
-    public function replaykonsultasiAction()
+    public function replykonsultasiAction()
     {
         
     }
+    
+    public function detailAction($id)
+    {
+        $konsultasi = Konsultasi::findFirst("idKonsultasi='$id'");
+        $this->view->konsultasi = $konsultasi;
+        
+    }
+
 
 }
