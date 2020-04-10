@@ -66,8 +66,10 @@ class PasienController extends Controller
         
     }
 
-    public function detailAction()
+    public function detailAction($id)
     {
+        $konsultasi = Konsultasi::findFirst("idKonsultasi='$id'");
+        $this->view->konsultasi = $konsultasi;
         
     }
 

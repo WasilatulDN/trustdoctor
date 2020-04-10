@@ -40,7 +40,7 @@ class PasienRoutes extends RouterGroup
             ]
         );
 
-        $this->addPost(
+        $this->addGet(
             '/detail/{id}',
             [
                 'action' => 'detail',

@@ -13,4 +13,5 @@ class Konsultasi extends Model
     public $keluhan;
     public $detail;
     public $dijawab;
+    public $jawaban;
 }
