@@ -6,7 +6,7 @@
     <link rel="icon" href="{{ url("img/favicon.ico") }}" type="image/x-icon"/>
     <link rel="shortcut icon" href="{{ url("img/favicon.ico") }}" type="image/x-icon"/>
     <link href="{{ url("css/logreg.css") }}" rel="stylesheet">
-    <title>Masuk - Cliniheal</title>
+    <title>Masuk - TrustDoctor</title>
 </head>
 <body>
 <div class="full-page" style="background: rgb(0, 102, 204)">

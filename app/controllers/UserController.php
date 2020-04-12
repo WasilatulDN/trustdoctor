@@ -36,7 +36,7 @@ class UserController extends Controller
             $password = $this->request->getPost('password');
             $dokter->password = $this->security->hash($password);
             $dokter->save();
-            $this->response->redirect('user/register');
+            $this->response->redirect('user/login');
         }
         elseif($this->request->getPost('tipe') == "pasien")
         {
@@ -47,7 +47,7 @@ class UserController extends Controller
             $password = $this->request->getPost('password');
             $pasien->password = $this->security->hash($password);
             $pasien->save();
-            $this->response->redirect('user/register');
+            $this->response->redirect('user/login');
         }
         
     }
