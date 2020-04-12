@@ -5,10 +5,10 @@ use Phalcon\Config;
 return new Config([
 
     'database' => [
-        'adapter' => 'Phalcon\Db\Adapter\Pdo\Mysql',
-        'host' => '127.0.0.1',
-        'username' => 'root',
-        'password' => '',
+        'adapter' => 'Phalcon\Db\Adapter\Pdo\Postgresql',
+        'host' => 'localhost',
+        'username' => 'postgres',
+        'password' => '123',
         'dbname' => 'trustdoctor'
     ],
     'url' => [
